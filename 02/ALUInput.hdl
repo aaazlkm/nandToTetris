@@ -1,0 +1,10 @@
+CHIP ALUInput {
+    IN a[16], z, n;
+    OUT out[16];
+
+    PARTS:
+    Mux16(a=a, b[0..15]=false, sel=z, out=za);
+
+    Not16(in=za, out=notza);
+    Mux16(a=za, b=notza, sel=n, out=out);
+}
